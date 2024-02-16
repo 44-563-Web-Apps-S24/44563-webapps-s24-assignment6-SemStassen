@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Animal</title>
+  </head>
+
+  <body>
+    <h2>Animal game by Sem</h2>
+
+    <form>
+      <label for="hidden_animal">The hidden animal type</label>
+      <input
+        type="password"
+        id="hidden_animal"
+        name="hiddenAnimal"
+        value="chicken"
+      />
+      <br />
+
+      <label for="guess_animal">Guess the animal</label>
+      <input type="text" id="guess_animal" name="guessAnimal" />
+      <br />
+
+      <button type="submit" onclick="checkAnimal(event)">
+        Check the guess
+      </button>
+    </form>
+
+    <p id="result">correct: 0 | wrong: 0</p>
+
+    <script>
+      let correct = 0;
+      let wrong = 0;
+      function checkAnimal(event) {
+        event.preventDefault();
+        const hiddenAnimal = document.getElementById("hidden_animal").value;
+        const guessAnimal = document.getElementById("guess_animal").value;
+        const result = document.getElementById("result");
+
+        if (hiddenAnimal === guessAnimal) {
+          correct++;
+          alert("Ruff ruff");
+        } else {
+          wrong++;
+          alert("Grrrr");
+        }
+
+        result.textContent = `correct: ${correct} | wrong: ${wrong}`;
+      }
+    </script>
+  </body>
+</html>

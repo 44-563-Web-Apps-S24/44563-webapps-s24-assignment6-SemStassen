@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Discount</title>
+  </head>
+  <body>
+    <h2>Sem's discount calculations</h2>
+
+    <form>
+      <label for="price">Enter price per</label>
+      <input type="number" id="price" name="price" value="10" />
+      <br />
+
+      <label for="count">Enter the number of items</label>
+      <input type="number" id="count" name="count" value="9" />
+      <br />
+
+      <label for="reductions">Enter the discount percent</label>
+      <input type="number" id="reductions" name="reductions" value="5" />
+      <br />
+
+      <input type="button" onclick="discount(event)" value="Show total" />
+    </form>
+
+    <p id="result">This text will be replaced</p>
+
+    <script>
+      function discount(event) {
+        event.preventDefault();
+
+        const price = parseInt(document.getElementById("price").value);
+        const count = parseInt(document.getElementById("count").value);
+        const reductions = parseInt(
+          document.getElementById("reductions").value
+        );
+        const result = document.getElementById("result");
+        let myOutput = "";
+
+        for (i = 0; i < 5; i++) {
+          let discountPercentage = reductions + i;
+          let total = price * count * ((100 - discountPercentage) / 100);
+          myOutput = myOutput + `${discountPercentage} is ${total}; `;
+        }
+
+        result.textContent = `Totals are: ${myOutput}`;
+      }
+    </script>
+  </body>
+</html>

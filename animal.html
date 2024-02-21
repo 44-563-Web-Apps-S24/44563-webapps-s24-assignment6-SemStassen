@@ -31,13 +31,14 @@
     <script>
       let correct = 0;
       let wrong = 0;
+      const hiddenAnimal = document.getElementById("hidden_animal");
+      const guessAnimal = document.getElementById("guess_animal");
+      const result = document.getElementById("result");
+
       function checkAnimal(event) {
         event.preventDefault();
-        const hiddenAnimal = document.getElementById("hidden_animal").value;
-        const guessAnimal = document.getElementById("guess_animal").value;
-        const result = document.getElementById("result");
 
-        if (hiddenAnimal === guessAnimal) {
+        if (hiddenAnimal.value === guessAnimal.value) {
           correct++;
           alert("Ruff ruff");
         } else {
@@ -46,6 +47,41 @@
         }
 
         result.textContent = `correct: ${correct} | wrong: ${wrong}`;
+      }
+    </script>
+
+    <hr />
+
+    <div>
+      <img
+        id="drink"
+        src="assets/Applecider.jpg"
+        alt="Applecider"
+        width="150"
+        height="150"
+        onclick="selectImage()"
+      />
+    </div>
+
+    <script>
+      let useImage = 1;
+      const drink = document.getElementById("drink");
+
+      function selectImage() {
+        switch (useImage) {
+          case 1:
+            drink.setAttribute("src", "assets/Sangria.jpg");
+            useImage = 2;
+            break;
+          case 2:
+            drink.setAttribute("src", "assets/Tea.jpg");
+            useImage = 3;
+            break;
+          case 3:
+            drink.setAttribute("src", "assets/Applecider.jpg");
+            useImage = 1;
+            break;
+        }
       }
     </script>
   </body>

@@ -11,28 +11,45 @@
   </head>
 
   <body>
-    <h2>Animal game by Sem</h2>
+    <div class="container pt-5">
+      <div class="row">
+        <h2>Animal game by Sem</h2>
 
-    <form>
-      <label for="hidden_animal">The hidden animal type</label>
-      <input
-        type="password"
-        id="hidden_animal"
-        name="hiddenAnimal"
-        value="chicken"
-      />
-      <br />
+        <form>
+          <label for="hidden_animal" class="form-label"
+            >The hidden animal type</label
+          >
+          <input
+            type="password"
+            id="hidden_animal"
+            name="hiddenAnimal"
+            value="chicken"
+            class="form-control"
+          />
+          <br />
 
-      <label for="guess_animal">Guess the animal</label>
-      <input type="text" id="guess_animal" name="guessAnimal" />
-      <br />
+          <label for="guess_animal" class="form-label">Guess the animal</label>
+          <input
+            type="text"
+            id="guess_animal"
+            name="guessAnimal"
+            class="form-control"
+          />
+          <br />
 
-      <button type="submit" id="submitGuess" onclick="checkAnimal(event)">
-        Check the guess
-      </button>
-    </form>
+          <button
+            type="submit"
+            id="submitGuess"
+            class="btn btn-primary"
+            onclick="checkAnimal(event)"
+          >
+            Check the guess
+          </button>
+        </form>
 
-    <div id="result">correct: 0 | wrong: 0</div>
+        <div id="result" class="fs-4 fw-bold mt-3">correct: 0 | wrong: 0</div>
+      </div>
+    </div>
 
     <script>
       let correct = 0;
@@ -69,16 +86,19 @@
     </script>
 
     <hr />
-
-    <div>
-      <img
-        id="drink"
-        src="assets/Applecider.jpg"
-        alt="Applecider"
-        width="150"
-        height="150"
-        onclick="selectImage()"
-      />
+    <div class="container">
+      <div class="row">
+        <div>
+          <img
+            id="drink"
+            src="assets/Applecider.jpg"
+            alt="Applecider"
+            width="150"
+            height="150"
+            onclick="selectImage()"
+          />
+        </div>
+      </div>
     </div>
 
     <script>

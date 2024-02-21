@@ -22,7 +22,7 @@
       <input type="button" onclick="discount(event)" value="Show total" />
     </form>
 
-    <p id="result">This text will be replaced</p>
+    <p id="discounts">This text will be replaced</p>
 
     <script>
       function discount(event) {
@@ -33,7 +33,7 @@
         const reductions = parseInt(
           document.getElementById("reductions").value
         );
-        const result = document.getElementById("result");
+        const result = document.getElementById("discounts");
         let myOutput = "";
 
         for (i = 0; i < 5; i++) {
@@ -43,6 +43,68 @@
         }
 
         result.textContent = `Totals are: ${myOutput}`;
+      }
+    </script>
+
+    <hr />
+
+    <form>
+      <label for="sum">Sum</label>
+      <input
+        type="radio"
+        id="sum"
+        value="sum"
+        name="operation"
+        onclick="chooseOp(event, 'sum')"
+      />
+      <br />
+      <label for="mult">Mult</label>
+      <input
+        type="radio"
+        id="mult"
+        value="multiply"
+        name="operation"
+        onclick="chooseOp(event, 'mult')"
+      />
+      <br />
+      <label for="exp">Exp</label>
+      <input
+        type="radio"
+        id="exp"
+        value="exponent"
+        name="operation"
+        onclick="chooseOp(event, 'exp')"
+      />
+      <br />
+    </form>
+
+    <p id="final">The final count is</p>
+
+    <script>
+      function chooseOp(event, operation) {
+        const valueOne = parseInt(document.getElementById("price").value);
+        const valueTwo = parseInt(document.getElementById("reductions").value);
+        const resultContainer = document.getElementById("final");
+        let result = "";
+        switch (operation) {
+          case "sum":
+            result = `sum of ${valueOne} and ${valueTwo} is ${
+              valueOne + valueTwo
+            }`;
+            break;
+          case "mult":
+            result = `product of ${valueOne} and ${valueTwo} is ${
+              valueOne * valueTwo
+            }`;
+            break;
+          case "exp":
+            result = `${valueOne} as an exponent of ${valueTwo} is ${
+              valueTwo ** valueOne
+            }`;
+            break;
+        }
+
+        resultContainer.textContent = result;
       }
     </script>
   </body>

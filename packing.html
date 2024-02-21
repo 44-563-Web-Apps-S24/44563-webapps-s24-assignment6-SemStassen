@@ -23,19 +23,43 @@
         value="Select for packing"
       />
     </form>
+    <hr />
+    <form>
+      <label for="travelMonth">Enter travel month</label>
+      <input type="text" id="travelMonth" name="travelMonth" value="May" />
+      <br />
+      <label for="price">Enter price</label>
+      <input type="text" id="price" name="price" />
+      <br />
+
+      <input
+        type="button"
+        onclick="updatePack(event)"
+        value="Update the pack"
+      />
+    </form>
 
     <p id="packingResults">Packing results</p>
 
     <script>
+      let myPack = {};
+      const packingResults = document.getElementById("packingResults");
+
       function selectPack(event) {
         event.preventDefault();
-
-        const packingResults = document.getElementById("packingResults");
-        let myPack = {};
 
         myPack.packLight = document.getElementById("packLight").checked;
         myPack.carryOn = document.getElementById("carryOn").checked;
         myPack.tablet = document.getElementById("tablet").checked;
+
+        packingResults.textContent = JSON.stringify(myPack);
+      }
+
+      function updatePack(event) {
+        event.preventDefault();
+
+        myPack.month = document.getElementById("travelMonth").value;
+        myPack.price = document.getElementById("price").value;
 
         packingResults.textContent = JSON.stringify(myPack);
       }
